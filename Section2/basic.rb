@@ -134,3 +134,22 @@ n += 1 #=> 2
 
 # nを1減らす（n = n - 1と同じ）
 n -= 1 #=> 1
+
+# 丸め誤差
+0.1 * 3.0 #=> 0.30000000000000004
+
+# 丸め誤差が気になる場合はRationalを使う
+0.1r * 3.0r #=> (3/10)
+
+# Rationalクラスであれば期待した通りに値の比較ができる
+0.1r * 3r == 0.3 #=> true
+
+# 変数に値が入っている場合は、rationalizeメソッドを使ってRationalクラスの数値に変換する
+a = 0.1
+b = 3.0
+a.rationalize * b.rationalize #=> (3/10)
+
+
+# 丸め誤差が気になる場合はBigDecimalを使う
+require 'bigdecimal'
+(BigDecimal('0.1') * BigDecimal('3.0')).to_f #=> 0.3
