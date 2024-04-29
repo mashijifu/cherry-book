@@ -153,3 +153,14 @@ a.rationalize * b.rationalize #=> (3/10)
 # 丸め誤差が気になる場合はBigDecimalを使う
 require 'bigdecimal'
 (BigDecimal('0.1') * BigDecimal('3.0')).to_f #=> 0.3
+
+# Rubyの真偽値
+# 偽とnil以外はすべて真
+# 真となる値（true、全ての数値、全ての文字列）)
+true
+1
+0
+-1
+'true'
+'false'
+''
