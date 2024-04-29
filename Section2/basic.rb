@@ -164,3 +164,12 @@ true
 'true'
 'false'
 ''
+
+# else節がなく、尚且つどの条件にも合致しなかった場合はnilが返る
+country = 'italy'
+
+if country == 'japan'
+  'こんにちは'
+elsif country == 'us'
+  'Hello'
+end
