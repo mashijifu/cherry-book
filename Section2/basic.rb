@@ -182,3 +182,15 @@ end
 
 # メソッドの戻り値
 # Rubyはreturnが不要、メソッドの戻り値は最後に評価された式が返る
+
+# %記法で文字列を作る
+# %q! !はシングルクォートで囲んだことと同じ
+puts %q!He said, "Don't speak."!
+
+# %Q! !はダブルクォートで囲んだことと同じ
+something = "Hello."
+puts %Q!He said, "#{something}"!
+
+# %! !もダブルクォートで囲んだことと同じ
+something = "Bye."
+puts %!He said, "#{something}"!
