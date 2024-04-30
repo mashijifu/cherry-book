@@ -173,3 +173,12 @@ if country == 'japan'
 elsif country == 'us'
   'Hello'
 end
+
+# メソッドの定義
+# メソッド名はスネークケースで書く
+def hello_world
+  'Hello, World!'
+end
+
+# メソッドの戻り値
+# Rubyはreturnが不要、メソッドの戻り値は最後に評価された式が返る
