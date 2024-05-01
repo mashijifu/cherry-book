@@ -277,3 +277,10 @@ String.new('hello') #=> "hello"
 
 # 2文字以上でも文字列
 'abc' #=> "abc"
+
+# if文以外で、&&や||を意図的に使う場合
+# Alice、Bob、Carrolと順に検索し、最初に見つかったユーザ（nilまたはfalse以外の値）を変数に格納する
+user = find_user('Alice') || find_user('Bob') || find_user('Carrol')
+
+# 正常なユーザであればメールを送信する（左辺が偽（nilまたはfalse）であればメール送信は実行されない）
+user.valid? && send_email_to(user)
