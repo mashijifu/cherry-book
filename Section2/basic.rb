@@ -310,3 +310,14 @@ n > 10 ? '10より大きい' : '10以下' #=> "10より大きい"
 
 message = n > 10 ? '10より大きい' : '10以下'
 message #=> "10より大きい"
+
+# デフォルト値付きの引数
+def foo(time = Time.now, message = bar)
+  puts "time: #{time}, message: #{message}"
+end
+
+def bar
+  'BAR'
+end
+
+foo #=> time: 2021-07-25 15:00:00 +0900, message: BAR
