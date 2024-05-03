@@ -321,3 +321,56 @@ def bar
 end
 
 foo #=> time: 2021-07-25 15:00:00 +0900, message: BAR
+
+# ？で終わるメソッド
+# 空文字列であればtrue、そうでなければfalse
+''.empty? #=> true
+'abc'.empty? #=> false
+
+# 引数の文字列が含まれていればtrue、そうでなければfalse
+'watch'.include?('at') #=> true
+'watch'.include?('in') #=> false
+
+# 奇数ならtrue、偶数ならfalse
+1.odd? #=> true
+2.odd? #=> false
+
+# 偶数ならtrue、奇数ならfalse
+1.even? #=> false
+2.even? #=> true
+
+# オブジェクトがnilであればtrue、そうでなければfalse
+nil.nil? #=> true
+'abc'.nil? #=> false
+1.nil? #=> false
+
+# ?で終わるメソッドはtrueかfalseを返すメソッドの慣習がある（自分でも作れる）
+# 3の倍数ならtrue、それ以外はfalseを返すメソッド
+def multiple_of_three?(n)
+  n % 3 == 0
+end
+
+multiple_of_three?(4) #=> false
+multiple_of_three?(5) #=> false
+multiple_of_three?(6) #=> true
+
+# !で終わるメソッド（呼び出したオブジェクトの状態を変更してしまう）
+# upcaseだと変数自体は変わらない
+a = 'ruby'
+a.upcase #=> "RUBY"
+a #=> "ruby"
+
+# upcase!だと変数自体が大文字に変わる
+a = 'ruby'
+a.upcase! #=> "RUBY"
+a #=> "RUBY"
+
+
+# !で終わるメソッドも自分で定義できる
+# メソッド名は!や?で終わることができるが、変数名には使えない（構文エラーになる）
+
+# !が付くメソッドについてのまとめ
+# !が付くメソッドは!が付かないメソッドよりも危険、という意味を持つ
+# 非破壊的メソッドと破壊的メソッドの2種類が存在する場合は後者に!が付く
+# 破壊的メソッドであっても非破壊的メソッドがない（つまり1種類しかない）場合は!が付かない（concatメソッド等）
+# 破壊的かどうかに関係なく、安全なメソッドと危険なメソッドの2種類が存在する場合にも後者に!が付く
