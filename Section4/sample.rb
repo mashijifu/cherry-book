@@ -70,3 +70,33 @@ numbers.each do |n|
   sum += n
 end
 sum #=> 10
+
+# 配列の要素を削除する条件を自由に指定する
+a = [1, 2, 3, 1, 2, 3]
+# 配列から値が2の要素を削除する
+a.delete(2)
+a #=> [1, 3, 1, 3]
+
+# ブロックを使って削除する要素を自由に指定する
+a = [1, 2, 3, 1, 2, 3]
+# 配列から値が奇数の要素を削除する
+a.delete_if do |n|
+  n.odd?
+end
+a #=> [2, 2]
+
+# do ... endと{}
+# 改行を含む長いブロックを書く場合はdo ... endで囲む
+numbers = [1, 2, 3, 4]
+sum = 0
+numbers.each do |n|
+  sum_value = n.even? ? n * 10 : n
+  sum += sum_value
+end
+sum #=> 64
+
+# ブロックを1行で書く場合は{}を使う
+numbers = [1, 2, 3, 4]
+sum = 0
+numbers.each { |n| sum += n }
+sum #=> 10
