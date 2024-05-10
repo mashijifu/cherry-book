@@ -62,3 +62,11 @@ quo_rem = 14.divmod(3)
 # 多重代入で別々の変数として受け取る
 quotient, remainder = 14.divmod(3)
 "商=#{quotient}, 余り=#{remainder}" #=> "商=4, 余り=2"
+
+# Rubyの繰り返し処理
+numbers = [1, 2, 3, 4]
+sum = 0
+numbers.each do |n|
+  sum += n
+end
+sum #=> 10
