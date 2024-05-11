@@ -132,3 +132,22 @@ numbers = [1, 2, 3, 4, 5, 6]
 # ブロックの戻り値が最初に真になった要素を返す
 even_number = numbers.find { |n| n.even? }
 even_number #=> 2
+
+# sum
+numbers = [1, 2, 3, 4]
+sum = numbers.sum
+sum #=> 10
+
+# ブロックを与えると各要素を加算した結果を返す
+numbers = [1, 2, 3, 4]
+sum = numbers.sum { |n| n * 10 }
+sum #=> 20
+
+# 初期値は0、引数で0以外の初期値を指定できる
+numbers = [1, 2, 3, 4]
+sum = numbers.sum(10)
+sum #=> 20
+
+# 初期値に文字列を指定すると、各要素を文字列として連結する
+chars = ['a', 'b', 'c', 'd']
+chars.sum('') #=> "abcd"
