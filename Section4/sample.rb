@@ -114,3 +114,14 @@ numbers = [1, 2, 3, 4, 5]
 new_numbers = numbers.map { |n| n * 10 }
 new_numbers #=> [10, 20, 30, 40, 50]
 
+# select/find_all/reject
+# selectメソッドは各要素に対してブロックを評価し、その戻り値が真の要素を集めた配列を返す
+numbers = [1, 2, 3, 4, 5, 6]
+even_numbers = numbers.select { |n| n.even? }
+even_numbers #=> [2, 4, 6]
+
+# rejectメソッドはselectメソッドの逆で、ブロックの戻り値が偽である要素を集めた配列を返す
+numbers = [1, 2, 3, 4, 5, 6]
+# 3の倍数を除外する（3の倍数以外を集める）
+non_multiples_of_three = numbers.reject { |n| n % 3 == 0 }
+non_multiples_of_three #=> [1, 2, 4, 5]
