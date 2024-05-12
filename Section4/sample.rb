@@ -194,3 +194,22 @@ chars.sum('>') { |c| c.upcase } #=> ">ABCD"
   m.to_s
 end
 #=> ["4", "8", "12", "16", "20", "24"]
+
+# 範囲（Range）
+# 最初の値..最後の値（最後の値を含む）
+# 最初の値...最後の値（最後の値を含まない）
+# ..を使うと5が範囲に含まれる（1以上5以下）
+(1..5).include?(0) #=> false
+(1..5).include?(5) #=> true
+(1..5).include?(6) #=> false
+
+# ...を使うと5が範囲に含まれない（1以上5未満）
+(1...5).include?(0) #=> false
+(1...5).include?(4) #=> true
+(1...5).include?(5) #=> false
+
+# ()で囲まずにめそっどを呼び出すとエラーになる
+1..5.include?(5) #=> undefined method `include?' for 5:Integer (NoMethodError)
+# ()で囲めばエラーにならない
+(1..5).include?(5) #=> true
+# 上記は、..や...の優先順位が低いため、()で囲む必要がある
