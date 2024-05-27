@@ -16,11 +16,10 @@ end
 
 # to_intsメソッド
 def to_ints(hex)
-  r = hex[1..2]
-  g = hex[3..4]
-  b = hex[5..6]
+  r, g, b = hex[1..2], hex[3..4], hex[5..6]
 
-  [r, g, b].map do |s|
-    s.hex
-  end
+  [r, g, b].map(&:hex)
+
+  # scanメソッドを使用してリファクタリング
+  # hex.scan(/\w\w/).map(&:hex)
 end
