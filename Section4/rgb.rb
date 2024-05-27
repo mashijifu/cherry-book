@@ -23,3 +23,6 @@ def to_ints(hex)
   # scanメソッドを使用してリファクタリング
   # hex.scan(/\w\w/).map(&:hex)
 end
+
+# エンドレスメソッド定義を使用したto_intsメソッド
+# def to_ints(hex) = hex.scan(/\w\w/).map(&:hex)
