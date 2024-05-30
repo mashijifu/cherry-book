@@ -256,3 +256,9 @@ a = [1, 2, 3]
 # 式展開や改行文字を含めたい場合は%Wを使う
 prefix = 'This is'
 %W(#{prefix}\ an\ apple small\nmelon orange) # => ["This is an apple", "small\nmelon", "orange"]
+
+# 文字列を配列に変換する（charsメソッド）
+'Ruby'.chars # => ["R", "u", "b", "y"]
+
+# 引数で渡した区切り文字で文字列を配列に分割する（splitメソッド）
+'Ruby,Java,PHP'.split(',') # => ["Ruby", "Java", "PHP"]
