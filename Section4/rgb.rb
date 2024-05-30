@@ -232,3 +232,27 @@ a = [1, 2, 3]
 [1, 2, 3] == [1, 2, 4] # => false
 [1, 2, 3] == [1, 2] # => false
 [1, 2, 3] == [1, 2, 3, 4] # => false
+
+# %記法で文字列の配列を簡潔に作る
+# []で文字列の配列を作成する
+['apple', 'melon', 'orange'] # => ["apple", "melon", "orange"]
+
+# %wで文字列の配列を作成する（!で囲む場合）
+%w!apple melon orange! # => ["apple", "melon", "orange"]
+
+# %wで文字列の配列を作成する（丸カッコで囲む場合）
+%w(apple melon orange) # => ["apple", "melon", "orange"]
+
+# 空白文字（スペースや改行）が連続した場合も1つの区切り文字と見なされる
+%w(
+  apple
+  melon
+  orange
+) # => ["apple", "melon", "orange"]
+
+# 空白文字を含めたい場合はバックスラッシュを使う
+%w(big\ apple small\ melon orange) # => ["big apple", "small melon", "orange"]
+
+# 式展開や改行文字を含めたい場合は%Wを使う
+prefix = 'This is'
+%W(#{prefix}\ an\ apple small\nmelon orange) # => ["This is an apple", "small\nmelon", "orange"]
