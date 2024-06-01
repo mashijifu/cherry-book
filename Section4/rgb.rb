@@ -278,3 +278,35 @@ a # => [0, 0, 0, 0, 0]
 # 要素数が10で、1, 2, 3, 1, 2, 3...と繰り返す配列を作る
 a = Array.new(10) { |n| n % 3 + 1 }
 a # => [1, 2, 3, 1, 2, 3, 1, 2, 3, 1]
+
+# 配列にデフォルト値を設定する場合の注意点
+# 要素が5つで'default'をデフォルト値とする配列を作成する
+a = Array.new(5, 'default')
+a # => ["default", "default", "default", "default", "default"]
+
+# 1つ目の要素を取得する
+str = a[0]
+str # => "default"
+
+# 1つ目の要素を大文字に変換する
+str.upcase!
+str # => "DEFAULT"
+
+# 配列の要素全てが大文字に変わってしまった！
+a # => ["DEFAULT", "DEFAULT", "DEFAULT", "DEFAULT", "DEFAULT"]
+
+# ブロックを使って、ブロックの戻り値をデフォルト値とする
+# （ブロックパラメータには添え字が渡されるが、ここでは使わないのでブロックパラメータを省略）
+a = Array.new(5) { 'default' }
+a # => ["default", "default", "default", "default", "default"]
+
+# 1つ目の要素を取得する
+str = a[0]
+str # => "default"
+
+# 1つ目の要素を大文字に変換する
+str.upcase!
+str # => "DEFAULT"
+
+# 1つ目の要素だけが大文字に変わり、他の要素は変わらない
+a # => ["DEFAULT", "default", "default", "default", "default"]
