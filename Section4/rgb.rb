@@ -341,3 +341,12 @@ a # => "XYef"
 # 末尾に"PQR"を連結する
 a << 'PQR'
 a # => "XYefPQR"
+
+# 添え字付きの繰り返し処理
+fruits = ['apple', 'orange', 'melon']
+# ブロックパラメータのiには0, 1, 2...と要素の添え字が入る
+fruits.each_with_index { |fruit, i| puts "#{i}: #{fruit}" }
+# 出力結果
+# 0: apple
+# 1: orange
+# 2: melon
