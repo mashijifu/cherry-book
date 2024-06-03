@@ -367,3 +367,17 @@ fruits = ['apple', 'orange', 'melon']
 p fruits.each # => #<Enumerator: ["apple", "orange", "melon"]:each>
 p fruits.map # => #<Enumerator: ["apple", "orange", "melon"]:map>
 p fruits.delete_if # => #<Enumerator: ["apple", "orange", "melon"]:delete_if>
+
+# 添え字を0以外の数値から開始させる
+fruits = ['apple', 'orange', 'melon']
+
+# eachで繰り返しつつ、1から始まる添え字を取得する
+fruits.each.with_index(1) { |fruit, i| puts "#{i}: #{fruit}" }
+# 出力結果
+# 1: apple
+# 2: orange
+# 3: melon
+
+# mapで処理しつつ、10から始まる添え字を取得する
+fruits.map.with_index(10) { |fruit, i| "#{i}: #{fruit}" }
+# => ["10: apple", "11: orange", "12: melon"]
