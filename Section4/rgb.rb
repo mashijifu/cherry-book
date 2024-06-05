@@ -488,3 +488,38 @@ i #=> 0
 length #=> 10
 width #=> 20
 i #=> 0
+
+# 文字列から指定した文字を削除する
+# deleteメソッド（文字列の値は変わらない）
+s = 'mebee'
+
+p s.delete('e')
+# "mmbmm"
+
+p s
+# "mebee"
+
+s = 'aaabbbccc'
+
+p s.delete('ab')
+# "ccc"
+
+p s
+# "aaabbbccc"
+
+# delete!メソッド（文字列の値が変わる）
+s = 'mebee'
+
+p s.delete!('e')
+# "mb"
+
+p s
+# "mb"
+
+s = 'aaabbbccc'
+
+p s.delete!('ab')
+# "ccc"
+
+p s
+# "ccc"
