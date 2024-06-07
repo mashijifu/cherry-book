@@ -606,3 +606,26 @@ File.open("./sample.txt", "w") do |file|
   file.puts("2行目のテキストです")
   file.puts("3行目のテキストです")
 end
+
+# do...endと{}の結合度の違い
+a = [1, 2, 3]
+
+# ブロックを渡さない時は指定した値が見つからないとnilが返る
+a.delete(100) # => nil
+
+# ブロックを渡すとブロックの戻り値が指定した値が見つからない時の戻り値になる
+a.delete(100) do
+  'NG'
+end
+# => "NG"
+
+a.delete 100 do
+  'NG'
+end
+# => "NG"
+
+a.delete 100 { 'NG' }
+#=> syntax error, unexpected '{', expecting end-of-input （SyntaxError）
+
+a.delete(100) { 'NG' }
+#=> "NG"
