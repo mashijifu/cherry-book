@@ -659,3 +659,15 @@ nil..nil
 # nilを両方とも省略すると構文エラー
 (..)
 #=> syntax error, unexpected ')' （SyntaxError）
+
+# さまざまな繰り返し処理
+# timesメソッド
+sum = 0
+# 処理を5回繰り返す。nには0, 1, 2, 3, 4が入る
+5.times { |n| sum += n }
+sum # => 10
+
+sum = 0
+# sumに1を加算する処理を5回繰り返す
+5.times { sum += 1 }
+sum # => 5
