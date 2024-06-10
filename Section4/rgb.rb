@@ -881,3 +881,15 @@ end
 #   melon, 3
 #   orange, 1
 #   orange, 3
+
+ret = 
+  catch :done do
+    throw :done
+  end
+ret #=> nil
+
+ret =
+  catch :done do
+    throw :done, 123
+  end
+ret #=> 123
